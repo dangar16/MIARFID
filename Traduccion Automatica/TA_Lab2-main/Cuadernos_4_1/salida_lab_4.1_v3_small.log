@@ -1,0 +1,58 @@
+tensor.upvnet.upv.es
+Tue Dec 16 17:47:16 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.169                Driver Version: 570.169        CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    Off |   00000000:21:00.0 Off |                    0 |
+| N/A   38C    P0             95W /  350W |     945MiB /  46068MiB |     10%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    Off |   00000000:41:00.0 Off |                    0 |
+| N/A   31C    P8             32W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA L40S                    Off |   00000000:A1:00.0 Off |                    0 |
+| N/A   41C    P0            115W /  350W |    4903MiB /  46068MiB |     38%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA L40S                    Off |   00000000:C1:00.0 Off |                    0 |
+| N/A   27C    P8             33W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         1174916      C   python                                  936MiB |
+|    2   N/A  N/A         1177882      C   python                                 4894MiB |
++-----------------------------------------------------------------------------------------+
+DatasetDict({
+    train: Dataset({
+        features: ['client_id', 'file', 'audio', 'sentence', 'translation', 'id'],
+        num_rows: 9158
+    })
+    validation: Dataset({
+        features: ['client_id', 'file', 'audio', 'sentence', 'translation', 'id'],
+        num_rows: 3318
+    })
+    test: Dataset({
+        features: ['client_id', 'file', 'audio', 'sentence', 'translation', 'id'],
+        num_rows: 4023
+    })
+})
+{'client_id': Value(dtype='string', id=None), 'file': Value(dtype='string', id=None), 'audio': Audio(sampling_rate=16000, mono=True, decode=True, id=None), 'sentence': Value(dtype='string', id=None), 'translation': Value(dtype='string', id=None), 'id': Value(dtype='string', id=None)}
+['/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432742.mp3', '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432745.mp3', '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432746.mp3', '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432747.mp3', '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432753.mp3']
+[{'path': '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432742.mp3', 'array': array([2.27373675e-12, 5.45696821e-12, 9.09494702e-13, ...,
+       0.00000000e+00, 0.00000000e+00, 0.00000000e+00]), 'sampling_rate': 16000}, {'path': '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432745.mp3', 'array': array([0.00000000e+00, 0.00000000e+00, 0.00000000e+00, ...,
+       1.03690354e-07, 1.45667514e-07, 1.11559110e-07]), 'sampling_rate': 16000}, {'path': '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432746.mp3', 'array': array([0., 0., 0., ..., 0., 0., 0.]), 'sampling_rate': 16000}, {'path': '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432747.mp3', 'array': array([ 0.00000000e+00,  0.00000000e+00,  0.00000000e+00, ...,
+        1.62458971e-08,  6.65825173e-09, -5.28669997e-09]), 'sampling_rate': 16000}, {'path': '/home/alumno.upv.es/dnargar/U4_Speech_Translation/Lab/covost2/pt/cv-corpus-23.0-2025-09-05/pt/clips/common_voice_pt_19432753.mp3', 'array': array([0., 0., 0., ..., 0., 0., 0.]), 'sampling_rate': 16000}]
+['Sua alma deve ser muito primitiva para entender essas coisas.', 'A tristeza em casa é um desejo mórbido de voltar para casa.', 'O nome original em inglês deste livro não é tão sensacional.', 'Não? não, obrigado? apenas procurando.', 'Essa palavra é uma sigla?']
+['YourHis/Her soul must be too primitive to understand these things.', 'Homesickness is a morbid desire to return home.', 'The original name in English of this book is not so impressive.', 'No, no, thanks, just looking.', 'Is this word an acronym?']
+[' E diz dinheiro e prestar das pessoas da aldeia.', ' Trancamos', ' Youtube ainda é a melhor plataforma de vídeos.', ' Menina e menino beijando nas sombras.', ' Eu sou senhor.']
+WER: 10.40 %

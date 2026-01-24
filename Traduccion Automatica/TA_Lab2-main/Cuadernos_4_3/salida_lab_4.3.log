@@ -1,0 +1,83 @@
+tensor.upvnet.upv.es
+Fri Dec 19 11:14:19 2025       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 570.169                Driver Version: 570.169        CUDA Version: 12.8     |
+|-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA L40S                    Off |   00000000:21:00.0 Off |                    0 |
+| N/A   63C    P0            307W /  350W |   18602MiB /  46068MiB |     91%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   1  NVIDIA L40S                    Off |   00000000:41:00.0 Off |                    0 |
+| N/A   40C    P0            133W /  350W |    4925MiB /  46068MiB |     51%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   2  NVIDIA L40S                    Off |   00000000:A1:00.0 Off |                    0 |
+| N/A   38C    P0             82W /  350W |       0MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+|   3  NVIDIA L40S                    Off |   00000000:C1:00.0 Off |                    0 |
+| N/A   39C    P0            110W /  350W |    9901MiB /  46068MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+                                                                                         
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|    0   N/A  N/A         3348397      C   python                                 2010MiB |
+|    0   N/A  N/A         3407162      C   python                                16578MiB |
+|    1   N/A  N/A         3351581      C   python                                 4916MiB |
+|    3   N/A  N/A         3353913      C   python                                 9892MiB |
++-----------------------------------------------------------------------------------------+
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1000 examples [00:00, 45386.02 examples/s]
+DatasetDict({
+    train: Dataset({
+        features: ['Unnamed: 0', 'hypothesis', 'reference', 'translation', 'hypothesis_clean', 'reference_clean', 'translation_clean'],
+        num_rows: 1000
+    })
+})
+[' Pedir dinheiro emprestado às pessoas da aldeia.']
+['Pedir dinheiro emprestado às pessoas da aldeia']
+['Borrow money from people in the village']
+[' pedir dinheiro emprestado às pessoas da aldeia ']
+['pedir dinheiro emprestado às pessoas da aldeia']
+['borrow money from people in the village']
+Map:   0%|          | 0/1000 [00:00<?, ? examples/s]Map: 100%|██████████| 1000/1000 [00:00<00:00, 22576.36 examples/s]
+GenerationConfig {
+  "bos_token_id": 0,
+  "decoder_start_token_id": 2,
+  "eos_token_id": 2,
+  "max_length": 200,
+  "pad_token_id": 1
+}
+
+Batching examples:   0%|          | 0/1000 [00:00<?, ? examples/s]Batching examples: 100%|██████████| 1000/1000 [00:00<00:00, 14904.65 examples/s]
+/home/alumno.upv.es/dnargar/.conda/envs/speech_env/lib/python3.10/site-packages/transformers/tokenization_utils_base.py:2914: UserWarning: `max_length` is ignored when `padding`=`True` and there is no truncation strategy. To pad to max length, use `padding='max_length'`.
+  warnings.warn(
+/home/alumno.upv.es/dnargar/.conda/envs/speech_env/lib/python3.10/site-packages/torchmetrics/utilities/imports.py:23: UserWarning: pkg_resources is deprecated as an API. See https://setuptools.pypa.io/en/latest/pkg_resources.html. The pkg_resources package is slated for removal as early as 2025-11-30. Refrain from using this package or pin to Setuptools<81.
+  from pkg_resources import DistributionNotFound, get_distribution
+BLEU score: 52.6
+Fetching 5 files:   0%|          | 0/5 [00:00<?, ?it/s]Fetching 5 files: 100%|██████████| 5/5 [00:00<00:00, 15011.83it/s]
+Lightning automatically upgraded your loaded checkpoint from v1.8.3.post1 to v2.6.0. To apply the upgrade to your files permanently, run `python -m pytorch_lightning.utilities.upgrade_checkpoint ../../../.cache/huggingface/hub/models--Unbabel--wmt22-comet-da/snapshots/2760a223ac957f30acfb18c8aa649b01cf1d75f2/checkpoints/model.ckpt`
+Encoder model frozen.
+/home/alumno.upv.es/dnargar/.conda/envs/speech_env/lib/python3.10/site-packages/pytorch_lightning/core/saving.py:197: Found keys that are not in the model state dict but in the checkpoint: ['encoder.model.embeddings.position_ids']
+/home/alumno.upv.es/dnargar/.conda/envs/speech_env/lib/python3.10/site-packages/lightning_fabric/plugins/environments/slurm.py:204: The `srun` command is available on your system but is not used. HINT: If your intention is to run Lightning on SLURM, prepend your python command with `srun` like so: srun python Cuadernos_4_3/lab_4.3.py ...
+💡 Tip: For seamless cloud uploads and versioning, try installing [litmodels](https://pypi.org/project/litmodels/) to enable LitModelCheckpoint, which syncs automatically with the Lightning model registry.
+GPU available: True (cuda), used: True
+TPU available: False, using: 0 TPU cores
+You are using a CUDA device ('NVIDIA L40S') that has Tensor Cores. To properly utilize them, you should set `torch.set_float32_matmul_precision('medium' | 'high')` which will trade-off precision for performance. For more details, read https://pytorch.org/docs/stable/generated/torch.set_float32_matmul_precision.html#torch.set_float32_matmul_precision
+LOCAL_RANK: 0 - CUDA_VISIBLE_DEVICES: [2]
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+huggingface/tokenizers: The current process just got forked, after parallelism has already been used. Disabling parallelism to avoid deadlocks...
+To disable this warning, you can either:
+	- Avoid using `tokenizers` before the fork if possible
+	- Explicitly set the environment variable TOKENIZERS_PARALLELISM=(true | false)
+COMET: 88.00 %
